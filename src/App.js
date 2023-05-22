@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from 'react';
 
 function App() {
+  const [state, setState] = React.useState(0);
+  function increment(){
+    setState (state + 1)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Home name ="This is the the first component in react file"></Home>
+      <About name = "This the second component of react, this message is displayed using props"></About>
+      <h2>This is counter , its value increases by clicking the button below =>{state}</h2>
+      <button onClick={increment}>Click to increment</button>
     </div>
   );
 }
 
 export default App;
+function Home(props){
+  return(
+    <div>
+        <ul>
+            <li>
+            <h1>Component 1</h1>
+            <h3>{props.name}</h3>
+            </li>
+        </ul>
+    </div>
+)
+}
+function About(props){
+  return(
+    <div>
+        <ul>
+            <li>
+                <h1>Component 2</h1>
+                <h3>{props.name}</h3>
+            </li>
+        </ul>
+    </div>
+  )
+}
